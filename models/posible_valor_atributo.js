@@ -10,17 +10,12 @@ module.exports = function(sequelize, DataTypes) {
         valor: {
             type: DataTypes.INTEGER
         },
-        idAtributo: {
-            type: DataTypes.INTEGER,
-            reference: {
-                model: Atributo,
-                key: 'id'
-            }
-        },
         tipo: {
             type: DataTypes.ENUM('texto' ,'entero', 'decimal')
         }
     });
+
+    Atributo.hasMany(PosibleValorAtributo, {as: 'Valores'});
     
     return PosibleValorAtributo;
 }

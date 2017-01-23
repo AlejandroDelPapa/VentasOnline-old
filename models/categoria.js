@@ -10,18 +10,10 @@ module.exports = function(sequelize, DataTypes) {
         },
         descripcion: {
             type: DataTypes.STRING
-        },
-        categoriaPadre: {
-            type: DataTypes.INTEGER,
-            reference: {
-                model: Categoria,
-                key: 'id'
-            }
         }
     });
 
-    //Categoria.hasMany(Categoria, {as: 'Subcategorias'});
-    Categoria.belongsToMany(Categoria, {as: 'Hija', through: 'CategoriaHija'})
+    Categoria.hasMany(Categoria, {as: 'Subcategorias'});
     
     return Categoria;
 }

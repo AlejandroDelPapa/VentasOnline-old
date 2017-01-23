@@ -13,13 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         descripcion: {
             type: DataTypes.STRING
         },
-        idProducto: {
-            type: DataTypes.INTEGER,
-            reference: {
-                model: Producto,
-                key: 'id'
-            }
-        },
         url: {
             type: DataTypes.STRING,
             isUrl: true
@@ -28,6 +21,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER
         }
     });
+
+    Producto.hasMany(Imagen, {as: 'Imagenes'});
     
     return Imagen;
 }

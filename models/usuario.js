@@ -56,14 +56,7 @@ module.exports = function(sequelize, DataTypes) {
         administrador: {
             type: DataTypes.BOOLEAN
         }
-    }, {
-        underscored: true,
-        //defaultScope: {
-        //    include: [{model: Job}]
-        //}
     });
-    
-    //User.belongsTo(Job);
     
     return User;
 }
