@@ -1,0 +1,10 @@
+{ 
+    "es": {
+        "header": {
+            "search": {
+                "placeholder": "buscar producto",
+                "button": "buscar"
+            }
+        }
+    }
+}
