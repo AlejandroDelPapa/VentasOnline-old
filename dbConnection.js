@@ -22,31 +22,9 @@ sequelize.sync().then(function() {
  console.log('Databse synchronized!!');
 });
 
-//Categoria.create({
-//    nombre: 'Computacion'
-//}).then(function(categoria){
-//    return Producto.create({
-//        titulo: 'Mac Pro',
-//        descripcion: 'Mac Pro traida de usa',
-//        url: 'http://mercadolibre.com.ar'
-//    }).then(function(producto){
-//        return categoria.addProducto(producto);
-//    })
-//})
-
-// Categoria.findOne().then(function(categoria) {
-//    return Categoria.create({
-//        nombre: 'Asus'
-//    }).then(function(subCategoria) {
-//        console.log('aca ta');
-//        return categoria.setSubcategorias(subCategoria);
-//    })
-// })
-
-// Categoria.findOne({where: {id: 1}}).then(function(categoria1) {
-//     return Categoria.findOne({where: {id: 2}}).then(function(categoria2) {
-//         return Categoria.findOne({where: {id: 3}}).then(function(categoria3) {
-//             return categoria1.setSubcategorias([categoria2, categoria3]);
-//         })
-//     })    
-// })
+module.exports.Atributo = Atributo;
+module.exports.Categoria = Categoria;
+module.exports.Imagen = Imagen;
+module.exports.ProsibleValorAtributo = ProsibleValorAtributo;
+module.exports.Producto = Producto;
+module.exports.Usuario = Usuario;
