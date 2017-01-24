@@ -1,6 +1,4 @@
 module.exports = function(sequelize, DataTypes) {
-    var Categoria = sequelize.import(__dirname + "/categoria")
-
     var Producto = sequelize.define('producto', {
         id: {
             type: DataTypes.INTEGER,
@@ -12,13 +10,6 @@ module.exports = function(sequelize, DataTypes) {
         },
         descripcion: {
             type: DataTypes.STRING
-        },
-        idCategoria: {
-            type: DataTypes.INTEGER,
-            reference: {
-                model: Categoria,
-                key: 'id'
-            }
         },
         url: {
             type: DataTypes.STRING,

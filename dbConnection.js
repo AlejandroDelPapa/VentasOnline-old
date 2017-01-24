@@ -18,27 +18,35 @@ Categoria.belongsToMany(Atributo, {through: 'AtributoCategoria'});
 Producto.belongsToMany(Categoria, {through: 'CategoriaProducto'});
 Categoria.belongsToMany(Producto, {through: 'CategoriaProducto'});
 
-//sequelize.sync().then(function() {
-//  console.log('Databse synchronized!!');
-//});
+sequelize.sync().then(function() {
+ console.log('Databse synchronized!!');
+});
 
-
-//User.create({
-//    firstName: 'Aleandro',
-//    lastName: 'Del Papa',
-//    address: 'La Rioja 4041',
-//    birthday: new Date(1989, 01, 09),
-//    jobId: 1
+//Categoria.create({
+//    nombre: 'Computacion'
+//}).then(function(categoria){
+//    return Producto.create({
+//        titulo: 'Mac Pro',
+//        descripcion: 'Mac Pro traida de usa',
+//        url: 'http://mercadolibre.com.ar'
+//    }).then(function(producto){
+//        return categoria.addProducto(producto);
+//    })
 //})
 
-//User.findOne().then(function(user) {
-//    console.log(user.dataValues);
-//    console.log('ahora si');
-//    console.log(user.job.dataValues);    
-//});
+// Categoria.findOne().then(function(categoria) {
+//    return Categoria.create({
+//        nombre: 'Asus'
+//    }).then(function(subCategoria) {
+//        console.log('aca ta');
+//        return categoria.setSubcategorias(subCategoria);
+//    })
+// })
 
-/*Job.findAll().then(function(jobs) {
-    for(var i = 0; i < jobs.length; i++) {
-        console.log(jobs[i].dataValues);
-    }    
-})*/
+// Categoria.findOne({where: {id: 1}}).then(function(categoria1) {
+//     return Categoria.findOne({where: {id: 2}}).then(function(categoria2) {
+//         return Categoria.findOne({where: {id: 3}}).then(function(categoria3) {
+//             return categoria1.setSubcategorias([categoria2, categoria3]);
+//         })
+//     })    
+// })
