@@ -9,10 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         valor: {
             type: DataTypes.INTEGER
-        },
-        tipo: {
-            type: DataTypes.ENUM('texto' ,'entero', 'decimal')
-        }
+        }        
     });
 
     Atributo.hasMany(PosibleValorAtributo, {as: 'Valores'});

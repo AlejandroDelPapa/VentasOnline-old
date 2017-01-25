@@ -10,6 +10,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         descripcion: {
             type: DataTypes.STRING
+        },
+        tipo: {
+            type: DataTypes.ENUM('texto' ,'entero', 'decimal')
         }
     });
     
