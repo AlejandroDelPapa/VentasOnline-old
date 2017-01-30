@@ -1,21 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
-    var Producto = sequelize.define('producto', {
-        id: {
+    var Category = sequelize.define('Category', {
+        Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        titulo: {
+        Name: {
             type: DataTypes.STRING
         },
-        descripcion: {
+        Description: {
             type: DataTypes.STRING
-        },
-        url: {
-            type: DataTypes.STRING,
-            isUrl: true
         }
     });
+
+    Category.hasMany(Category, {as: 'Subcategories'});
     
-    return Producto;
+    return Category;
 }

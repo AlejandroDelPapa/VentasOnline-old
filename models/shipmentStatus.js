@@ -1,20 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
-    var Atributo = sequelize.define('atributo', {
-        id: {
+    var ShipmentStatus = sequelize.define('ShipmentStatus', {
+        Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        nombre: {
+        Name: {
             type: DataTypes.STRING
         },
-        descripcion: {
+        Description: {
             type: DataTypes.STRING
-        },
-        tipo: {
-            type: DataTypes.ENUM('texto' ,'entero', 'decimal')
         }
     });
     
-    return Atributo;
+    return ShipmentStatus;
 }

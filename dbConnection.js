@@ -4,27 +4,49 @@ var properties = PropertiesReader('./application.properties');
 
 var sequelize = new Sequelize(properties.get('database.url'));
 
-var Atributo = sequelize.import(__dirname + "/models/atributo")
-var Categoria = sequelize.import(__dirname + "/models/categoria")
-var Imagen = sequelize.import(__dirname + "/models/imagen")
-var ProsibleValorAtributo = sequelize.import(__dirname + "/models/posible_valor_atributo")
-var Producto = sequelize.import(__dirname + "/models/producto")
-var Usuario = sequelize.import(__dirname + "/models/usuario")
+var Attribute = sequelize.import(__dirname + "/models/attribute");
+var Category = sequelize.import(__dirname + "/models/category");
+var Shipment = sequelize.import(__dirname + "/models/shipment");
+var ShipmentStatus = sequelize.import(__dirname + "/models/shipmentStatus");
+var PaymentStatus = sequelize.import(__dirname + "/models/paymentStatus");
+var Image = sequelize.import(__dirname + "/models/image");
+var Payment = sequelize.import(__dirname + "/models/payment");
+var Product = sequelize.import(__dirname + "/models/product");
+var Post = sequelize.import(__dirname + "/models/post");
+var User = sequelize.import(__dirname + "/models/user");
+var AttributeValue = sequelize.import(__dirname + "/models/attributeValue");
+var Sale = sequelize.import(__dirname + "/models/sale");
+var SaleProduct = sequelize.import(__dirname + "/models/saleProduct");
+var UserVisits = sequelize.import(__dirname + "/models/userVisits");
 
 
-Atributo.belongsToMany(Categoria, {through: 'AtributoCategoria'});
-Categoria.belongsToMany(Atributo, {through: 'AtributoCategoria'});
+Attribute.belongsToMany(Category, {through: 'AttributeCategory'});
+Category.belongsToMany(Attribute, {through: 'AttributeCategory'});
 
-Producto.belongsToMany(Categoria, {through: 'CategoriaProducto'});
-Categoria.belongsToMany(Producto, {through: 'CategoriaProducto'});
+Product.belongsToMany(AttributeValue, {through: 'ProductAttributeValue'});
+AttributeValue.belongsToMany(Product, {through: 'ProductAttributeValue'});
 
-sequelize.sync().then(function() {
+Product.belongsToMany(Sale, {through: 'SaleProduct'});
+Sale.belongsToMany(Product, {through: 'SaleProduct'});
+
+User.belongsToMany(Post, {through: 'UserVisits'});
+Post.belongsToMany(User, {through: 'UserVisits'});
+
+sequelize.sync({force: "true"}).then(function() {
  console.log('Databse synchronized!!');
 });
 
-module.exports.Atributo = Atributo;
-module.exports.Categoria = Categoria;
-module.exports.Imagen = Imagen;
-module.exports.ProsibleValorAtributo = ProsibleValorAtributo;
-module.exports.Producto = Producto;
-module.exports.Usuario = Usuario;
+module.exports.Attribute = Attribute;
+module.exports.Category = Category;
+module.exports.Shipment = Shipment;
+module.exports.ShipmentStatus = ShipmentStatus;
+module.exports.PaymentStatus = PaymentStatus;
+module.exports.Image = Image;
+module.exports.Payment = Payment;
+module.exports.Product = Product;
+module.exports.Post = Post;
+module.exports.User = User;
+module.exports.AttributeValue = AttributeValue;
+module.exports.Sale = Sale;
+module.exports.SaleProduct = SaleProduct;
+module.exports.UserVisits = UserVisits;

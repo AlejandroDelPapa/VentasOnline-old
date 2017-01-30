@@ -1,59 +1,59 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('usuario', {
-        id: {
+  var User = sequelize.define('User', {
+        Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        nickname: {
+        Nickname: {
             type: DataTypes.STRING,
             unique: true
         },
-        nombre: {
+        FirstName: {
             type: DataTypes.STRING
         },
-        apellido: {
+        LastName: {
             type: DataTypes.STRING
         },
-        domicilio: {
+        Address: {
             type: DataTypes.STRING
         },
-        email: {
+        Email: {
             type: DataTypes.STRING,
             validate: {
                 isEmail: true
             },
             unique: true
         },
-        sexo: {
+        Sex: {
             type: DataTypes.ENUM('M', 'F')
         },
-        fechaNacimiento: {
+        Birthday: {
             type: DataTypes.DATE
         },
-        dni: {
+        Dni: {
             type: DataTypes.STRING,
             unique: true
         },
-        ciudad: {
+        City: {
             type: DataTypes.STRING
         },
-        partido: {
+        State: {
             type: DataTypes.STRING
         },
-        codigoPostal: {
+        PostalCode: {
             type: DataTypes.STRING
         },
-        telefonoFijo: {
+        Phone: {
             type: DataTypes.STRING
         },
-        telefonoMovil: {
+        MobilePhone: {
             type: DataTypes.STRING
         },
-        contraseña: {
+        Password: {
             type: DataTypes.STRING
         },
-        administrador: {
+        IsAdmin: {
             type: DataTypes.BOOLEAN
         }
     });

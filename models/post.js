@@ -1,28 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
-    var Producto = sequelize.import(__dirname + "/producto")
+    var Category = sequelize.import(__dirname + "/category")
 
-    var Imagen = sequelize.define('imagen', {
-        id: {
+    var Post = sequelize.define('Post', {
+        Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        nombre: {
+        Title: {
             type: DataTypes.STRING
         },
-        descripcion: {
+        Description: {
             type: DataTypes.STRING
         },
-        url: {
-            type: DataTypes.STRING,
-            isUrl: true
+        Cost: {
+            type: DataTypes.DECIMAL
         },
-        orden: {
+        Visits: {
             type: DataTypes.INTEGER
         }
     });
 
-    Producto.hasMany(Imagen, {as: 'Imagenes'});
+    Category.hasMany(Post, {as: 'Posts'});
     
-    return Imagen;
+    return Post;
 }

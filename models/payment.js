@@ -1,19 +1,21 @@
 module.exports = function(sequelize, DataTypes) {
-    var Categoria = sequelize.define('categoria', {
-        id: {
+    var PaymentStatus = sequelize.import(__dirname + "/paymentStatus")
+
+    var Payment = sequelize.define('Payment', {
+        Id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        nombre: {
+        Name: {
             type: DataTypes.STRING
         },
-        descripcion: {
+        Description: {
             type: DataTypes.STRING
         }
     });
 
-    Categoria.hasMany(Categoria, {as: 'Subcategorias'});
+    PaymentStatus.hasMany(Payment, {as: 'PaymentStatuses'});
     
-    return Categoria;
+    return Payment;
 }
